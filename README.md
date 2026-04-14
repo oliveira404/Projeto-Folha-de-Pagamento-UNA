@@ -1,169 +1,80 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+# Folha de Pagamento em Java
 
-abstract class Funcionario{
-    protected String nome;
-    protected int matricula;
-    protected double salario = 2000;
+Projeto desenvolvido em Java que simula uma **folha de pagamento**, permitindo o cadastro de diferentes tipos de funcionários e o cálculo automático de seus salários, de acordo com regras específicas.
 
-    public Funcionario(String nome, int matricula, double salario){
-        this.nome = nome;
-        this.matricula = matricula;
-        this.salario = salario;
-    }
-    
-    public abstract double calcularSalario();
-    public abstract String getTipo();
-       
-    public String toString(){
-        return "Nome: " + nome +
-        " | Tipo: "+ getTipo() +
-        " | Matricula: " + matricula + 
-        " | Salario: " + calcularSalario();
-    }
-}
+O sistema funciona via **terminal** e utiliza conceitos fundamentais da **Programação Orientada a Objetos (POO)**.
 
-class FuncionarioPadrao extends Funcionario{
-    public FuncionarioPadrao(String nome, int matricula){
-        super(nome, matricula, 2000); // 2000 = Salario
-    }
+---
 
-    public double calcularSalario(){
-    return salario;
-    }
+## 📌 Objetivo do Projeto
 
-    public String getTipo(){
-        return "Funcionario Padrão";
-    }
-}
+O objetivo deste projeto é aplicar, na prática, os principais conceitos de Java e POO, como:
 
-class FuncionarioComissionado extends Funcionario{
-    double valorDasVendas;
-    int percentual;
+- Classes abstratas
+- Herança
+- Polimorfismo
+- Organização de classes
+- Uso de listas dinâmicas
+- Entrada de dados via terminal
 
-    public FuncionarioComissionado(String nome, int matricula, double valorDasVendas, int percentual){
-        super(nome, matricula, 2000);
-        this.valorDasVendas = valorDasVendas;
-        this.percentual = percentual;
-    }
+---
 
-    public double calcularSalario(){
-        return (valorDasVendas*percentual/100) + salario;
-    }
+## ⚙️ Funcionalidades
 
-    public String getTipo(){
-        return "Funcionario Comissionado";
-    }
+- Menu interativo no terminal
+- Cadastro de funcionários
+- Cálculo automático de salários
+- Armazenamento dos funcionários em lista
+- Exibição de todos os funcionários cadastrados ao encerrar o programa
 
-}
+---
 
-class FuncionarioProducao extends Funcionario{
-    int quantidadeDePecas;
-    double valorDasPecas;
+## 🧱 Tipos de Funcionários
 
-    public FuncionarioProducao(String nome, int matricula, int quantidadeDePecas, double valorDasPecas){
-        super(nome, matricula, 2000);
-        this.quantidadeDePecas = quantidadeDePecas;
-        this.valorDasPecas = valorDasPecas;
-        }
+### 👤 Funcionário Padrão
+- Possui salário fixo.
 
-        public double calcularSalario(){
-            return (valorDasPecas*quantidadeDePecas) + salario;
-        }
+### 💰 Funcionário Comissionado
+- Salário fixo
+- Acréscimo baseado em:
+  - Valor das vendas
+  - Percentual de comissão
 
-        public String getTipo(){
-            return "Funcionario Prdodução";
-        }
+### 🏭 Funcionário de Produção
+- Salário fixo
+- Acréscimo proporcional à:
+  - Quantidade de peças produzidas
+  - Valor de cada peça
 
-    }
+---
 
-public class FolhaDePagamento {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Object> lista = new ArrayList<>();
+## 🧠 Estrutura do Projeto
 
-        int opcao;
-        do{
-            System.out.println("=== Folha de pagamento ===");
-            System.out.println("1. Cadastrar funcionario padrão");
-            System.out.println("2. Cadastrar funcionario comissionado");
-            System.out.println("3. Cadastrar funcionario produção");
-            System.out.println("0. Sair do programa");
-            System.err.print("\nDigite a sua opção: ");
-            opcao = scanner.nextInt();
-            scanner.nextLine();
+O programa é composto pelas seguintes classes:
 
-            switch (opcao) {
-                case 1:
-                    System.out.print("\nDigite o nome do funcionario: ");
-                    String nome = scanner.nextLine();
+- `Funcionario` (classe abstrata)
+- `FuncionarioPadrao`
+- `FuncionarioComissionado`
+- `FuncionarioProducao`
+- `FolhaDePagamento` (classe principal com `main`)
 
-                    System.out.print("Digite a matricula do funcionario: ");
-                    int matricula = scanner.nextInt();
-                    scanner.nextLine();
+Todas as classes estão implementadas em um único arquivo para facilitar o estudo e a execução.
 
-                    FuncionarioPadrao p = new FuncionarioPadrao(nome, matricula);
-                    lista.add(p);
-                    System.out.println("\nFuncionario cadastrado com sucesso!" + "\n" );
-                    break;
-            
-                case 2:
-                    System.out.print("\nDigite o nome do funcionario: ");
-                    String nome2 = scanner.nextLine();
+---
 
-                    System.out.print("Digite a matricula do funcionario: ");
-                    int matricula2 = scanner.nextInt();
+## 🛠️ Tecnologias Utilizadas
 
-                    System.out.print("Digite o valor das vendas: ");
-                    double valorDasVendas = scanner.nextDouble();
+- Java (JDK 8 ou superior)
+- `Scanner` para entrada de dados
+- `ArrayList` para armazenamento dinâmico
 
-                    System.out.print("Digite o percentual: ");
-                    int percentual = scanner.nextInt();
+---
 
-                    FuncionarioComissionado p2 = new FuncionarioComissionado(nome2, matricula2, valorDasVendas, percentual);
-                    lista.add(p2);
-                    System.out.println("\nFuncionario cadastrado com sucesso!" + "\n");
-                    break;
-                    
-                case 3:
-                    System.out.print("\nDigite o nome do funcionario: ");
-                    String nome3 = scanner.nextLine();
+## ▶️ Como Executar o Projeto
 
-                    System.out.print("Digite a matricula do funcionario: ");
-                    int matricula3 = scanner.nextInt();
+### Pré-requisitos
+- Java instalado na máquina
 
-                    System.out.print("Digite a quantidade de peças: ");
-                    int quantidadeDePecas = scanner.nextInt();
-
-                    System.out.print("Digite o valor das Peças: ");
-                    double valorDasPecas = scanner.nextDouble();
-
-                    FuncionarioProducao p3 = new FuncionarioProducao(nome3, matricula3, quantidadeDePecas, valorDasPecas);
-                    lista.add(p3);
-                    System.out.println("\nFuncionario cadastrado com sucesso !" + "\n");
-                    break;
-
-                case 0:
-                    System.out.println("\nEncerrando o programa ...");
-                
-                    System.out.println("\n=== Lista de pessoas ===");
-                    for (Object obj  : lista) {
-                        
-                        System.out.println(obj); 
-                    }
-                        System.out.println("\nQuantidade de pessoas cadastradas: " + lista.size() + "\n");
-                
-
-                        break;
-                
-                default:
-                    System.out.println("\nOpção Invalida\n");
-                    break;
-            }
-
-
-        } while (opcao != 0);
-        
-    }
-
-}
+Verifique com:
+```bash
+java -version
