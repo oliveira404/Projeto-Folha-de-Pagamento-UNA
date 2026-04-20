@@ -87,10 +87,10 @@ Projeto desenvolvido com finalidade educacional para praticar conceitos de:
 
 ## 👨‍💻 Autor
 
-Guilherme Henrique de Araujo Oliveira
-Heberth Sérgio Pereira Marques
-Fernanda Lima Sousa
-Larissa Rodrigues dos Santos
+- Guilherme Henrique de Araujo Oliveira
+- Heberth Sérgio Pereira Marques
+- Fernanda Lima Sousa
+- Larissa Rodrigues dos Santos
 
 Projeto acadêmico desenvolvido para estudo da linguagem Java e dos conceitos de Programação Orientada a Objetos (POO), com foco em classes abstratas, herança e polimorfismo.
 Projeto acadêmico desenvolvido para estudo da linguagem Java e dos conceitos de Programação Orientada a Objetos (POO), utilizando herança, polimorfismo e classes abstratas.
