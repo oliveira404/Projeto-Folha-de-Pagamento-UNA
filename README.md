@@ -92,6 +92,4 @@ Projeto desenvolvido com finalidade educacional para praticar conceitos de:
 - Fernanda Lima Sousa
 - Larissa Rodrigues dos Santos
 
-Projeto acadêmico desenvolvido para estudo da linguagem Java e dos conceitos de Programação Orientada a Objetos (POO), com foco em classes abstratas, herança e polimorfismo.
-Projeto acadêmico desenvolvido para estudo da linguagem Java e dos conceitos de Programação Orientada a Objetos (POO), utilizando herança, polimorfismo e classes abstratas.
 ``
